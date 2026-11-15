@@ -8,6 +8,7 @@ allow priv_app vendor_sysfs_touch:file rw_file_perms;
 
 typeattribute vendor_sysfs_touch mlstrustedobject;
 
-# Thermal scenario per app (thermal_message/sconfig, labeled in the device tree)
+# Thermal scenario per app: /sys/class/thermal/thermal_message/sconfig is
+# labeled sysfs_thermal by the onyx device tree.
 allow { platform_app priv_app } sysfs_thermal:dir search;
-allow { platform_app priv_app } vendor_sysfs_thermal_sconfig:file rw_file_perms;
+allow { platform_app priv_app } sysfs_thermal:file rw_file_perms;
